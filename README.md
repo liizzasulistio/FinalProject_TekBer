@@ -1,6 +1,4 @@
 # FinalProject_TekBer
-<<<<<<< HEAD
-"kelompok 3"
-=======
-Test
->>>>>>> c8e8def61a5ddb5c698961042a0882dd31403677
+
+Ini final project Mata Kuliah Teknologi Bergerak 2021 kelompok 3.
+
