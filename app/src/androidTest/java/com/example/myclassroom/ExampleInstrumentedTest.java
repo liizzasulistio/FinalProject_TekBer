@@ -1,4 +1,4 @@
-package com.example.list_kelas_page;
+package com.example.myclassroom;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.list_kelas_page", appContext.getPackageName());
+        assertEquals("com.example.myclassroom", appContext.getPackageName());
     }
 }
