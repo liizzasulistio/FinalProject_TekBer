@@ -6,9 +6,11 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
-import com.example.myclassroom.data.LoginRepository;
-import com.example.myclassroom.data.Result;
-import com.example.myclassroom.data.model.LoggedInUser;
+import com.example.myclassroom.auth.LoginDataSource;
+import com.example.myclassroom.auth.LoginRepository;
+import com.example.myclassroom.auth.LoginSingleton;
+import com.example.myclassroom.auth.Result;
+import com.example.myclassroom.auth.model.LoggedInUser;
 import com.example.myclassroom.R;
 
 public class LoginViewModel extends ViewModel {
@@ -29,17 +31,7 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
-    public void login(String username, String password) {
-        // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
 
-        if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
-        } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
-        }
-    }
 
     public void loginDataChanged(String username, String password) {
         if (!isUserNameValid(username)) {

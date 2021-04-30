@@ -1,5 +1,4 @@
-package com.example.myclassroom.data.model;
-
+package com.example.myclassroom.auth.model;
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository
  */

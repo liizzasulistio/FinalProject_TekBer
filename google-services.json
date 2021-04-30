@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "650431981468",
+    "project_id": "myclassroom-tekber",
+    "storage_bucket": "myclassroom-tekber.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650431981468:android:f817f2904aa97c0d810a59",
+        "android_client_info": {
+          "package_name": "com.example.myclassroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650431981468-mg335e5fe5t606fbrb0ofdilcrb9sg4j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myclassroom",
+            "certificate_hash": "8336d1e22d72bef989185e8828d237184dbcdd17"
+          }
+        },
+        {
+          "client_id": "650431981468-rrd7a73lolpufifuhsh8eejbvm70la6l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3AoZPVi-Oed_pyOEHZnlWRrhCqYAVQ4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650431981468-rrd7a73lolpufifuhsh8eejbvm70la6l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
