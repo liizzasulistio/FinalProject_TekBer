@@ -1,26 +1,31 @@
 package com.example.myclassroom.ui.login;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import android.app.Application;
 import android.util.Patterns;
 
-import com.example.myclassroom.auth.LoginDataSource;
-import com.example.myclassroom.auth.LoginRepository;
-import com.example.myclassroom.auth.LoginSingleton;
-import com.example.myclassroom.auth.Result;
-import com.example.myclassroom.auth.model.LoggedInUser;
 import com.example.myclassroom.R;
+import com.example.myclassroom.auth.AuthAppRepository;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class LoginViewModel extends ViewModel {
+public class LoginViewModel extends AndroidViewModel {
 
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
-    private LoginRepository loginRepository;
 
-    LoginViewModel(LoginRepository loginRepository) {
-        this.loginRepository = loginRepository;
+    private AuthAppRepository auth;
+    private MutableLiveData<FirebaseUser> userLiveData;
+
+    public LoginViewModel(@NonNull Application application) {
+        super(application);
+        this.auth = new AuthAppRepository(application);
+        userLiveData = auth.getUserLiveData();
     }
 
     LiveData<LoginFormState> getLoginFormState() {
@@ -58,5 +63,17 @@ public class LoginViewModel extends ViewModel {
     // A placeholder password validation check
     private boolean isPasswordValid(String password) {
         return password != null && password.trim().length() > 5;
+    }
+
+    public void login(String username, String password) {
+        auth.login(username,password);
+    }
+
+    public void register(String username, String password){
+        auth.register(username, password);
+    }
+
+    public MutableLiveData<FirebaseUser> getUserLiveData() {
+        return userLiveData;
     }
 }

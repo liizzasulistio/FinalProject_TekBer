@@ -24,7 +24,6 @@ import android.widget.Toast;
 
 import com.example.myclassroom.R;
 import com.example.myclassroom.ui.login.LoginViewModel;
-import com.example.myclassroom.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,8 +34,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
-        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
-                .get(LoginViewModel.class);
+        loginViewModel = new ViewModelProvider(this,
+                new ViewModelProvider.AndroidViewModelFactory(getApplication())
+        ).get(LoginViewModel.class);
 
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
