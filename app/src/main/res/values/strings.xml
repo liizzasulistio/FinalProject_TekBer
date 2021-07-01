@@ -20,4 +20,230 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="title_home" translatable="false">Beranda</string>
+    <string name="title_dashboard" translatable="false">Dashboard</string>
+    <string name="title_notifications" translatable="false">Notifikasi</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_order">Pemesanan</string>
+    <string name="title_profile">Profil Siswa</string>
+    <string name="notification">Pengumuman</string>
+    <string name="data_pengguna">Data Pengguna</string>
+    <string name="order_history">Riwayat Pembelian</string>
+    <string name="daftar_ulang">Daftar Ulang</string>
+    <string name="activity">Aktivitas</string>
+    <string name="nama_siswa">Nama : Fika Alifah Indriati</string>
+    <string name="kelas_siswa">Kelas : TK-A</string>
+    <string name="title_user_activity">Pesananmu telah terverifikasi</string>
+    <string name="nama_pesanan">Nama Pesanan</string>
+    <string name="example_date">Pilih Tanggal</string>
+    <string name="click_to_see_order">Klik untuk melanjutkan pemesanan.</string>
+    <string name="keranjang_saya">Keranjang Saya</string>
+    <string name="daftar_pengguna">Daftar Pengguna</string>
+    <string name="product_xxx">Product XXX</string>
+    <string name="until_date">Hingga 30 Januari 2021</string>
+    <string name="pengumuman">Pengumuman</string>
+    <string name="lihat_semua">Lihat Semua</string>
+    <string name="example_pengumuman_title">Tidak Ada Pengumuman</string>
+    <string name="belum_daftar_ulang">Anda Belum Daftar Ulang</string>
+    <string name="desc_daftar_ulang">Silahkan melakukan daftar ulang, sebelum tanggal 31 Januari.</string>
+    <string name="status_pemesanan">Status Pemesanan</string>
+    <string name="nota_pemesanan">Nota Pemesanan</string>
+    <string name="example_produk">Seragam Olahraga, Buku Tema, Seragam Formal</string>
+    <string name="pendaftaran_ulang_dibuka">Pendaftaran Ulang Dibuka</string>
+    <string name="example_desc_pengumuman">Belum ada pengumuman untuk saat ini, terima kasih!</string>
+    <string name="example_date_pengumuman_inside">Diumumkan pada, 12 Januari 2021</string>
+    <string name="keranjang_pesanan">Keranjang Pesanan</string>
+    <string name="example_desc_basket_1">1 Buku Tema 5 Tanaman</string>
+    <string name="example_desc_basket_2">2 Buku Mengenal Hewan Di Rumah</string>
+    <string name="form_daftar_ulang">Form Daftar Ulang</string>
+    <string name="batal">Batal</string>
+    <string name="nama">Nama</string>
+    <string name="masukkan_nama">Masukkan Nama</string>
+    <string name="nama_orang_tua">Nama Orang Tua</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="histori_pembelian">Histori Pembelian</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="lupa_password">Lupa Password?</string>
+    <string name="masuk">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="welcome_text_app">Selamat Datang di TK XXX!</string>
+    <string name="login_desc_text">Masuk menggunakan email atau akun sosial mediamu.</string>
+    <string name="daftar_produk">Daftar Produk</string>
+    <string name="daftar_pemesanan">Daftar Pemesanan</string>
+    <string name="seragam_formal">Seragam Formal</string>
+    <string name="buku_tema_5">Buku Tema 5</string>
+    <string name="wajib">Wajib</string>
+    <string name="ukuran">Ukuran</string>
+    <string name="jumlah">Jumlah</string>
+    <string name="jumlah_produk">Jumlah Tersedia : </string>
+    <string name="example_price">0</string>
+    <string name="example_jumlah">0</string>
+    <string name="add_to_basket">Tambahkan Ke Keranjang</string>
+    <string name="example_sum_price">Total: Rp 0</string>
+    <string name="password_baru">Password Baru</string>
+    <string name="username">Username</string>
+    <string name="password_lama">Password Lama</string>
+    <string name="simpan">Simpan</string>
+    <string name="ubah_profil">Ubah Profil</string>
+    <string name="kelas">Kelas</string>
+    <string name="tahun_ajaran">Tahun Ajaran</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="alamat">Alamat</string>
+    <string name="no_hp_orang_tua">No. HP Orang Tua</string>
+    <string name="asal_sekolah">Asal Sekolah</string>
+    <string name="ubah_foto_profil">Ubah Foto Profil</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="lihat_atau_ubah_profil">Lihat atau Ubah Profil</string>
+    <string name="ubah_email">Ubah Email</string>
+    <string name="keluar">Keluar</string>
+    <string name="pemesanan_telah_selesai">Pemesanan telah selesai.</string>
+    <string name="hem_putih">Hem Putih</string>
+    <string name="bawahan">Bawahan</string>
+    <string name="detail_pemesanan">Detail Pemesanan</string>
+    <string name="tanggal_pesanan_dibayar">Tanggal Pesanan Dibayar</string>
+    <string name="tanggal_pesan">Tanggal Pesan</string>
+    <string name="tanggal_pesananan_disetujui">Tanggal Pesananan Disetujui</string>
+    <string name="detail_nota">Detail Nota</string>
+    <string name="status_daful_0">Belum daftar.</string>
+    <string name="status_daful_1">Proses verifikasi.</string>
+    <string name="status_daful_2">Terverifikasi.</string>
+    <string name="status_daful_3">Revisi.</string>
+    <string name="unggah_bukti_pembayaran">Unggah Bukti Pembayaran</string>
+    <string name="nrp">NRP</string>
+    <string name="tambah_kelas">Tambah Kelas</string>
+
+    <string name="registration_detail_price">
+        <br>Dengan Perincian</br>
+        <br>1. Worksheet</br>
+        <br>2. Field Trip Tahunan</br>
+        <br>3. Iuran IDPP</br>
+    </string>
+
+    <string name="registration_detail_transfer">
+        <br>Transfer ke Rekening BNI:</br>
+        <br>a.n SekolahTK 1234567</br>
+    </string>
+
+    <string-array name="list_jenis_kelamin">
+        <item>Perempuan</item>
+        <item>Laki-Laki</item>
+    </string-array>
+
+    <string-array name="list_kelas">
+        <item>TK - A</item>
+        <item>TK - B</item>
+    </string-array>
+
+    <string-array name="list_ajaran">
+        <item>2020 / 2021</item>
+        <item>2021 / 2022</item>
+    </string-array>
+
+    <integer-array name="list_jumlah">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </integer-array>
+
+    <string-array name="list_ukuran">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
+    <string name="panduan">
+        1. Mengisi Request Form Pendaftaran Murid Baru (PMB) dari link yang diberikan Admin.<br></br> <br></br> 2. Melakukan transfer pembayaran untuk pembelian Form PMB sebesar Rp. 275.000,- dan mengirim bukti pembayaran ke Admin sesuai keterangan yang muncul saat mensubmit Request Form PMB.<br></br> <br></br> 3. Calon siswa baru menerima User ID dan Password dari Admin</string>
+    <string name="prosedur_pendaftaran">Prosedur Pendaftaran</string>
+    <string name="example_nohp">08125288888</string>
+    <string name="sudah_mempunyai_akun">Sudah mempunyai akun?</string>
+    <string name="ulangi_password">Ulangi Password</string>
+    <string name="atasan">Atasan</string>
+    <string name="info_pendaftaran">Info Pendaftaran</string>
+    <string name="total_biaya">Total Biaya</string>
+    <string name="status_pendaftaran">Status Pendaftaran</string>
+    <string name="hingga">Hingga</string>
+
+    <string name="empty_input">Isian tidak boleh kosong!</string>
+    <string name="over_order">Pembelian tidak boleh melebihi stok!</string>
+    <string name="min_order">Pembelian minimal 1 produk!</string>
+    <string name="sold_out">Stok produk habis!</string>
+    <string name="weak_passwd">Password harus lebih dari 6 karakter</string>
+    <string name="wrong_email">Masukkan email dengan benar</string>
+    <string name="wrong_input">Masukkan data dengan benar</string>
+    <string name="wait_process">Harap menunggu, data sedang diproses</string>
+    <string name="err_conf_passwd">Konfirmasi password harus sama!</string>
+    <string name="err_conf_old_passwd">Password harus sama dengan password lama!</string>
+    <string name="err_conf_old_email">Email harus sama dengan email lama!</string>
+    <string name="scs_regis">Berhasil daftar</string>
+    <string name="fail_regis">Gagal daftar, pastikan masukkan data dengan benar dan coba lagi</string>
+    <string name="scs_login">Berhasil masuk</string>
+    <string name="scs_basket">Berhasil membuat keranjang</string>
+    <string name="fail_login">Terjadi kesalahan, pastikan data yang Anda masukkan benar dan silahkan coba lagi!</string>
+    <string name="fail_basket">Terjadi kesalahan, keranjang Anda gagal dibuat!</string>
+    <string name="scs_get_data">Data berhasil diambil</string>
+    <string name="fail_get_data">Data gagal diambil</string>
+    <string name="fail_remove_daful">Data daftar ulang gagal dihapus</string>
+    <string name="scs_set_data">Data berhasil ditambahkan</string>
+    <string name="scs_set_passwd">Password berhasil diubah</string>
+    <string name="scs_set_email">Email berhasil diubah</string>
+    <string name="fail_set_data">Data gagal ditambahkan</string>
+    <string name="fail_set_passwd">Password gagal diubah</string>
+    <string name="fail_set_email">Email gagal diubah</string>
+    <string name="rejected_please_regis_again">Pendaftaran email ini pernah ditolak, mohon registrasi ulang</string>
+    <string name="buku">Buku</string>
+    <string name="seragam">Seragam</string>
+
+    <string name="fail_login_not_siswa">Akun ini bukan Siswa</string>
+    <string name="fail_get_user">Gagal mendapatkan Akun</string>
+    <string name="fail_set_user">Gagal menambahkan Pengguna</string>
+    <string name="email_is_not_verified">Email belum terverifikasi, cek kotak masuk emailmu.</string>
+    <string name="nominal_bayar">Nominal Bayar (Rp)</string>
+    <string name="example_nominal">225000</string>
+    <string name="data_pendaftaran">Data Pendaftaran</string>
+    <string name="fail_upload_img">Gagal mengunggah foto</string>
+    <string name="example_gender">Perempuan</string>
+    <string name="pesan">Pesan</string>
+    <string name="pilih_semua">Pilih Semua</string>
+    <string name="tk_a">TK A</string>
+    <string name="detail_proses_verifikasi">Pendaftaran telah terkirim, saat ini akun Anda sedang diverifikasi oleh pihak sekolah</string>
+    <string name="proses_verifikasi">Proses Verifikasi</string>
+    <string name="cek_status">Cek Status</string>
+    <string name="belum_bayar">Belum bayar.</string>
+    <string name="tanggal_pesanan_selesai">Tanggal Pesanan Selesai</string>
+    <string name="no_content">-</string>
+    <string name="lihat_bukti_pembayaran">Lihat Bukti Pembayaran</string>
+    <string name="riwayat_pemesanan">Riwayat Pemesanan</string>
+    <string name="konfirmasi_password_baru">Konfirmasi Password Baru</string>
+    <string name="email_lama">Email Lama</string>
+    <string name="email_baru">Email Baru</string>
+    <string name="scs_update_data">Data berhasil diubah</string>
+    <string name="fail_update_data">Data gagal diubah</string>
+    <string name="to_all">Kepada: SEMUA</string>
+    <string name="ubah_password">Ubah Password</string>
+    <string name="detail_pengumuman">Detail Pengumuman</string>
+    <string name="tanggal_pengumuman">Tanggal Pengumuman</string>
+    <string name="ya">Ya</string>
+    <string name="tidak">Tidak</string>
+    <string name="semua">Semua</string>
+    <string name="tidak_ada_produk">Tidak Ada Produk</string>
 </resources>

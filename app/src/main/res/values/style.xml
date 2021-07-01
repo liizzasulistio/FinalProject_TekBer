@@ -1,0 +1,101 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorPrimaryLight</item>
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorPrimary</item>
+        <item name="colorOnSecondary">@color/colorPrimaryLight</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <!-- Theme.AppCompat.Light is not a dialog theme -->
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/header_title_text</item>
+    </style>
+
+    <style name="ListTitle">
+        <item name="android:layout_marginBottom">@dimen/container_padding_y</item>
+        <item name="android:layout_marginTop">@dimen/list_space</item>
+    </style>
+
+    <style name="xsTitle">
+        <item name="android:textSize">@dimen/list_status_text</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="sTitle" parent="ListTitle">
+        <item name="android:textSize">@dimen/list_desc_text</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="lTitle" parent="ListTitle">
+        <item name="android:textSize">@dimen/card_title_text</item>
+        <item name="android:fontFamily">@font/poppins_extrabold</item>
+    </style>
+
+    <style name="mdTitle" parent="ListTitle">
+        <item name="android:textSize">@dimen/card_subtitle_text</item>
+        <item name="android:fontFamily">@font/poppins_extrabold</item>
+    </style>
+
+    <style name="mdContent">
+        <item name="android:textSize">@dimen/card_title_text</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="CommonButton">
+        <item name="android:padding">@dimen/input_text_padding</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/button_text</item>
+    </style>
+
+    <style name="DefaultMargin">
+        <item name="android:layout_marginStart">@dimen/container_padding_x</item>
+        <item name="android:layout_marginEnd">@dimen/container_padding_x</item>
+    </style>
+
+    <style name="InputText">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">@dimen/list_subtitle_text</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="LabelText">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">@dimen/list_desc_text</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:layout_marginTop">@dimen/container_padding_x</item>
+    </style>
+
+    <style name="InputText.EdtText" >
+        <item name="android:padding">@dimen/inner_padding</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:layout_marginTop">@dimen/container_padding_x</item>
+    </style>
+    <style name="InputText.EdtTextNoMargin" >
+        <item name="android:padding">@dimen/inner_padding</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
+</resources>

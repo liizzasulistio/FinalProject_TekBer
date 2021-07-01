@@ -1,96 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListKelasActivity">
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp">
 
-    <LinearLayout
-        android:orientation="vertical"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_kelas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <GridLayout
-            android:columnCount="2"
-            android:rowCount="3"
-            android:alignmentMode="alignMargins"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:text="Nama Kelas">
-
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:text="Nama Dosen">
-
-                    </TextView>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:text="Nama Kelas">
-
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:text="Nama Dosen">
-
-                    </TextView>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-        </GridLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -34,7 +34,7 @@
             android:layout_marginBottom="@dimen/container_padding_x">
 
             <EditText
-                android:id="@+id/et_login_email"
+                android:id="@+id/et_regis_email"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/input_height"
                 android:hint="@string/email"
@@ -48,7 +48,35 @@
             android:layout_height="@dimen/input_height"
             android:layout_marginBottom="@dimen/container_padding_x">
             <EditText
-                android:id="@+id/et_login_password"
+                android:id="@+id/et_regis_Name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_height"
+                android:hint="@string/nama"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                style="@style/InputText.EdtTextNoMargin"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:layout_marginBottom="@dimen/container_padding_x">
+            <EditText
+                android:id="@+id/et_regis_nrp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_height"
+                android:hint="@string/nrp"
+                android:inputType="number"
+                android:background="@android:color/transparent"
+                style="@style/InputText.EdtTextNoMargin"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:layout_marginBottom="@dimen/container_padding_x">
+            <EditText
+                android:id="@+id/et_regis_password"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/input_height"
                 android:hint="@string/password"
@@ -57,10 +85,10 @@
                 style="@style/InputText.EdtTextNoMargin"/>
         </FrameLayout>
         <Button
-            android:id="@+id/btn_login_masuk"
+            android:id="@+id/btn_regis_daftar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/masuk"
+            android:text="@string/daftar"
             style="@style/CommonButton"
             android:textColor="@android:color/white"
             android:layout_marginTop="@dimen/container_double_padding_y" />
@@ -77,16 +105,16 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_text"
                 android:gravity="center_horizontal|bottom"
-                android:text="Tidak mempunyai akun?"
+                android:text="Sudah mempunyai akun?"
                 android:textColor="@color/colorBlack"/>
 
             <TextView
-                android:id="@+id/tv_login_daftar"
+                android:id="@+id/tv_daftar_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_text"
                 android:gravity="center_horizontal|bottom"
-                android:text="@string/daftar"
+                android:text="@string/masuk"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"/>
         </LinearLayout>
