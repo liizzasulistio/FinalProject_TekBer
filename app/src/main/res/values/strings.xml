@@ -246,4 +246,5 @@
     <string name="tidak">Tidak</string>
     <string name="semua">Semua</string>
     <string name="tidak_ada_produk">Tidak Ada Produk</string>
+    <string name="title_activity_menu">MenuActivity</string>
 </resources>
