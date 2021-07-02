@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.TambahKelasActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_tambah_kelas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10px">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight=".70"
+            android:id="@+id/et_tambah_kelas"
+            android:layout_height="@dimen/input_height"
+            android:hint="@string/tambah_kelas"
+            android:inputType="text"
+            android:background="@android:color/transparent"
+            style="@style/InputText.EdtTextNoMargin"
+            />
+        <Button
+            android:text="Tambah"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/input_height"
+            android:layout_weight=".30" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_kelas_sendiri"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_tambah_kelas"/>
+
+</RelativeLayout>

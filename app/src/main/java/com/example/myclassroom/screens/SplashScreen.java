@@ -1,4 +1,4 @@
-package com.example.myclassroom;
+package com.example.myclassroom.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 
-import com.example.myclassroom.ui.login.LoginActivity;
+import com.example.myclassroom.R;
 
 public class SplashScreen extends AppCompatActivity {
 
