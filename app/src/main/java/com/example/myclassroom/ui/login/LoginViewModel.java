@@ -28,11 +28,11 @@ public class LoginViewModel extends AndroidViewModel {
         userLiveData = auth.getUserLiveData();
     }
 
-    LiveData<LoginFormState> getLoginFormState() {
+    public LiveData<LoginFormState> getLoginFormState() {
         return loginFormState;
     }
 
-    LiveData<LoginResult> getLoginResult() {
+    public LiveData<LoginResult> getLoginResult() {
         return loginResult;
     }
 
