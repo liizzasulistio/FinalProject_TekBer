@@ -20,6 +20,15 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
 
     Context mContext;
     List<DummyData.DataKelas> mData;
+    private AdapterKelas.OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(AdapterKelas.OnItemClickListener listener) {
+        mListener = listener;
+    }
 
     public AdapterKelas(Context mContext, List<DummyData.DataKelas> mData) {
         this.mContext = mContext;

@@ -2,6 +2,7 @@ package com.example.myclassroom.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,6 +10,8 @@ import android.view.MenuItem;
 import com.example.myclassroom.R;
 
 public class TambahKelasActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +21,7 @@ public class TambahKelasActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main_drawer, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -31,19 +34,18 @@ public class TambahKelasActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if(id == R.id.nav_list_kelas){
-            return true;
-        }
-        if (id == R.id.nav_profile) {
-            return true;
-        }
-        if (id == R.id.nav_masuk_kelas) {
-            return true;
+            Intent intent = new Intent(this, ListKelasActivity.class);
+            startActivity(intent);
+            finish();
         }
         if (id == R.id.nav_tambah_kelas) {
-            return true;
+            Intent intent = new Intent(this, TambahKelasActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        if (id == R.id.nav_profile) {
         }
         if (id == R.id.nav_logout) {
-            return true;
         }
 
         return super.onOptionsItemSelected(item);

@@ -23,6 +23,7 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
     RecyclerView studentListRV;
     StudentAdapter studentAdapter;
     List<StudentsData.StudentsDummy> studentsDummyList;
+    String sessionId = getIntent().getStringExtra("EXTRA_ID_KELAS");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

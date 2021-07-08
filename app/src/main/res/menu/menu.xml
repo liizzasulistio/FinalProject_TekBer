@@ -10,10 +10,10 @@
         android:title="Masuk Kelas"
         app:showAsAction="never">
     </item>
-    <item android:id="@+id/nav_tambah_kelas"
-        android:title="Tambah Kelas"
-        app:showAsAction="never">
-    </item>
+<!--    <item android:id="@+id/nav_tambah_kelas"-->
+<!--        android:title="Tambah Kelas"-->
+<!--        app:showAsAction="never">-->
+<!--    </item>-->
     <item android:id="@+id/nav_profile"
         android:title="Profile"
         app:showAsAction="never">

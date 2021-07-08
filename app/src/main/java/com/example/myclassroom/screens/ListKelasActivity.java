@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.myclassroom.R;
 import com.example.myclassroom.adapter.AdapterKelas;
+import com.example.myclassroom.adapter.StudentAdapter;
 import com.example.myclassroom.data.DummyData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class ListKelasActivity extends AppCompatActivity  {
+public class ListKelasActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerView KelasRecyclerView;
     AdapterKelas kelasAdapter;
@@ -59,6 +60,20 @@ public class ListKelasActivity extends AppCompatActivity  {
         kelasAdapter = new AdapterKelas(this,mData);
         KelasRecyclerView.setAdapter(kelasAdapter);
         KelasRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        kelasAdapter.setOnItemClickListener(new AdapterKelas.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+//                Intent intent = new Intent(ListKelasActivity.this, StudentDetail.class);
+//                intent.putExtra("Student", mData.get(position).getId().toString());
+                Intent intent = new Intent(getBaseContext(), StudentListActivity.class);
+                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getNama_kelas().toString());
+                startActivity(intent);
+//                Toast.makeText(ListKelasActivity.this, mData.get(position).getNama_kelas().toString(),
+//                        Toast.LENGTH_SHORT).show();
+//                startActivity(intent);
+            }
+        });
     }
 
     private void setupView() {
@@ -110,6 +125,8 @@ public class ListKelasActivity extends AppCompatActivity  {
                         Toast.makeText(getApplicationContext(), "Failed to Connect to Firestore", Toast.LENGTH_SHORT);
                     }
                 });
+
+
                 // add / update new classroom
                 // Map<String, Object> newClassroom = new Map<String, Object>();
                 // newClassroom.put("name", NAMA_KELAS);
@@ -164,4 +181,12 @@ public class ListKelasActivity extends AppCompatActivity  {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
+    }
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
 }
