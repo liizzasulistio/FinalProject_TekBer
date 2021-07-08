@@ -32,21 +32,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_height"
             android:layout_marginBottom="@dimen/container_padding_x">
-
-            <EditText
-                android:id="@+id/et_regis_email"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/input_height"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:background="@android:color/transparent"
-                style="@style/InputText.EdtTextNoMargin"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/input_height"
-            android:layout_marginBottom="@dimen/container_padding_x">
             <EditText
                 android:id="@+id/et_regis_Name"
                 android:layout_width="match_parent"
@@ -67,6 +52,21 @@
                 android:layout_height="@dimen/input_height"
                 android:hint="@string/nrp"
                 android:inputType="number"
+                android:background="@android:color/transparent"
+                style="@style/InputText.EdtTextNoMargin"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:layout_marginBottom="@dimen/container_padding_x">
+
+            <EditText
+                android:id="@+id/et_regis_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_height"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
                 android:background="@android:color/transparent"
                 style="@style/InputText.EdtTextNoMargin"/>
         </FrameLayout>

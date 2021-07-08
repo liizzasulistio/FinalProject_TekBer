@@ -1,14 +1,17 @@
 package com.example.myclassroom.data;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class DummyData {
     public static class DataKelas{
 
-        int id;
+        String id;
         String nama_kelas;
         String token_kelas;
         String id_created;
 
-        public DataKelas(int id, String nama_kelas, String token_kelas, String id_created) {
+        public DataKelas(String id, String nama_kelas, String token_kelas, String id_created) {
             this.id = id;
             this.nama_kelas = nama_kelas;
             this.token_kelas = token_kelas;
@@ -23,11 +26,11 @@ public class DummyData {
             this.id_created = id_created;
         }
 
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
@@ -46,5 +49,14 @@ public class DummyData {
         public void setToken_kelas(String token_kelas) {
             this.token_kelas = token_kelas;
         }
+    }
+
+    public class FirestoreClass {
+        public String name;
+        public String token;
+        public ArrayList<Map<String, Object>> students;
+        public String owner_id;
+
+        public FirestoreClass() {}
     }
 }
