@@ -8,13 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myclassroom.R;
 
-public class StudentDetail extends AppCompatActivity {
-
-
-
+public class MyProfileActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.student_detail);
+        setContentView(R.layout.my_profile_activity);
     }
 }

@@ -20,12 +20,13 @@
         <activity android:name=".screens.ListKelasActivity" />
         <activity android:name=".screens.RegisterActivity" />
         <activity android:name=".screens.TestActivity" />
-        <activity android:name=".screens.StudentListActivity"/>
+<!--        <activity android:name=".screens.StudentListActivity"/>-->
         <activity android:name=".screens.StudentDetail"/>
+<!--        <activity android:name=".screens.MyProfileActivity"/>-->
 <!--        <activity-->
 <!--            android:name=".screens.LoginActivity"-->
 <!--            android:label="@string/title_activity_login" />-->
-        <activity android:name=".screens.SplashScreen" >
+        <activity android:name=".screens.StudentListActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

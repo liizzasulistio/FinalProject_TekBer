@@ -1,8 +1,10 @@
 package com.example.myclassroom.screens;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -11,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -25,6 +28,15 @@ import com.example.myclassroom.ui.login.LoggedInUserView;
 import com.example.myclassroom.ui.login.LoginFormState;
 import com.example.myclassroom.ui.login.LoginResult;
 import com.example.myclassroom.ui.login.LoginViewModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -55,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.et_login_password);
         btnLogin = findViewById(R.id.btn_login_masuk);
         tvSignUp = findViewById(R.id.tv_login_daftar);
-        pbLoading = findViewById(R.id.loading);
+        pbLoading = findViewById(R.id.pb_loading);
     }
 
     private void setupView() {
@@ -140,13 +152,28 @@ public class LoginActivity extends AppCompatActivity {
         tvSignUp.setOnClickListener(regis);
     }
 
-    private View.OnClickListener masuk = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            pbLoading.setVisibility(View.VISIBLE);
-            loginViewModel.login(etEmail.getText().toString(),
-                    etPassword.getText().toString());
-        }
+    private View.OnClickListener masuk = v -> {
+        Intent intent = new Intent(LoginActivity.this, ListKelasActivity.class);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        String email = etEmail.getText().toString();
+        String password = etPassword.getText().toString();
+        pbLoading.setVisibility(View.VISIBLE);
+        btnLogin.setEnabled(false);
+        tvSignUp.setEnabled(false);
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    pbLoading.setVisibility(View.GONE);
+                    btnLogin.setEnabled(true);
+                    tvSignUp.setEnabled(true);
+                    if (task.isSuccessful()){
+                        Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
     };
 
     private View.OnClickListener regis = new View.OnClickListener() {

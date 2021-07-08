@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -16,6 +17,16 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
     Context mContext;
     List<StudentsData.StudentsDummy> studentsDummyList;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
 
     public StudentAdapter(Context mContext, List<StudentsData.StudentsDummy> studentsDummyList) {
         this.mContext = mContext;
@@ -27,14 +38,22 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         ImageView StudentAva;
         TextView StudentName,StudentNRP;
 
-        public StudentViewHolder(@NonNull View itemView) {
+        public StudentViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
-            setupItemView();
-        }
-
-        private void setupItemView() {
             StudentName = itemView.findViewById(R.id.name_txt);
             StudentNRP = itemView.findViewById(R.id.nrp_txt);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -45,7 +64,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         View layout;
         layout = LayoutInflater.from(mContext).inflate(R.layout.item_student,parent,false);
 
-        return new StudentViewHolder(layout);
+        return new StudentViewHolder(layout, mListener);
     }
 
     @Override

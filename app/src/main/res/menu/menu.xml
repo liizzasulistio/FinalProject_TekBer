@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+    <item android:id="@+id/nav_list_kelas"
+        android:title="List Kelas"
+        app:showAsAction="never">
+    </item>
+
+    <item android:id="@+id/nav_masuk_kelas"
+        android:title="Masuk Kelas"
+        app:showAsAction="never">
+    </item>
+    <item android:id="@+id/nav_tambah_kelas"
+        android:title="Tambah Kelas"
+        app:showAsAction="never">
+    </item>
+    <item android:id="@+id/nav_profile"
+        android:title="Profile"
+        app:showAsAction="never">
+    </item>
+    <item android:id="@+id/nav_logout"
+        android:title="Logout"
+        app:showAsAction="never">
+    </item>
 </menu>

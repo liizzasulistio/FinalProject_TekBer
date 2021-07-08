@@ -1,7 +1,11 @@
 package com.example.myclassroom.screens;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,17 +45,28 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
     }
 
     public void loadData() {
-//        studentsDummyList.add(new StudentsData.StudentsDummy(1,1,"Hana","123"));
-//        studentsDummyList.add(new StudentsData.StudentsDummy(2,3,"Hani","456"));
-//        studentsDummyList.add(new StudentsData.StudentsDummy(2,3,"Hans","789"));
+        studentsDummyList.add(new StudentsData.StudentsDummy(1,1,"Hana","123"));
+        studentsDummyList.add(new StudentsData.StudentsDummy(2,3,"Hani","456"));
+        studentsDummyList.add(new StudentsData.StudentsDummy(2,3,"Hans","789"));
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("classroom").document();
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        db.collection("classroom").document();
 
 
         studentAdapter = new StudentAdapter(this,studentsDummyList);
         studentListRV.setAdapter(studentAdapter);
         studentListRV.setLayoutManager(new LinearLayoutManager(this));
+
+        studentAdapter.setOnItemClickListener(new StudentAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(StudentListActivity.this, StudentDetail.class);
+                intent.putExtra("Student", studentsDummyList.toString());
+//                Toast.makeText(StudentListActivity.this, "it works",
+//                        Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
     }
 
 //    public List<StudentsData.StudentsDummy>

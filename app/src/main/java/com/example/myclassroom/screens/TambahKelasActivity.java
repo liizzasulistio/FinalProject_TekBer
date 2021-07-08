@@ -30,6 +30,9 @@ public class TambahKelasActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if(id == R.id.nav_list_kelas){
+            return true;
+        }
         if (id == R.id.nav_profile) {
             return true;
         }
