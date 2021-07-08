@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -59,11 +61,17 @@ public class ListKelasActivity extends AppCompatActivity  {
         kelasAdapter = new AdapterKelas(this,mData);
         KelasRecyclerView.setAdapter(kelasAdapter);
         KelasRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
     }
+
+
+
 
     private void setupView() {
 
     }
+
 
     public void loadData() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -129,6 +137,7 @@ public class ListKelasActivity extends AppCompatActivity  {
                 // }
                 // newClassroom.put("students", oldClassroomStudents)
                 // db.collection("classroom").document(ID_CLASSROOM).set(newClassroom);
+
     }
 
 

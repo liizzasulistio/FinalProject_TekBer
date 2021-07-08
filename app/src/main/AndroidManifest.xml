@@ -11,20 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyClassroom" >
-<!--        <activity-->
-<!--            android:name=".screens.MenuActivity"-->
-<!--            android:label="@string/title_activity_menu"-->
-<!--            android:theme="@style/Theme.MyClassroom.NoActionBar" >-->
-<!--        </activity>-->
         <activity android:name=".screens.TambahKelasActivity" />
         <activity android:name=".screens.ListKelasActivity" />
         <activity android:name=".screens.RegisterActivity" />
         <activity android:name=".screens.TestActivity" />
         <activity android:name=".screens.StudentListActivity"/>
         <activity android:name=".screens.StudentDetail"/>
-<!--        <activity-->
-<!--            android:name=".screens.LoginActivity"-->
-<!--            android:label="@string/title_activity_login" />-->
+        <activity
+            android:name=".screens.LoginActivity"
+            android:label="@string/title_activity_login" />
         <activity android:name=".screens.SplashScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -83,6 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
                         FirebaseUser u = auth.getCurrentUser();
                         db.collection("user").document(u.getUid()).set(user);
                         startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "Register Failed", Toast.LENGTH_SHORT).show();
                     }
