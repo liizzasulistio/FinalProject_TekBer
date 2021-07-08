@@ -1,41 +1,9 @@
 package com.example.myclassroom.data;
 
-<<<<<<< HEAD
-
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class DummyData implements Parcelable {
-    protected DummyData(Parcel in) {
-    }
-
-    public static final Creator<DummyData> CREATOR = new Creator<DummyData>() {
-        @Override
-        public DummyData createFromParcel(Parcel in) {
-            return new DummyData(in);
-        }
-
-        @Override
-        public DummyData[] newArray(int size) {
-            return new DummyData[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-    }
-
-=======
 import java.util.ArrayList;
 import java.util.Map;
 
 public class DummyData {
->>>>>>> e7e625fa1a566f645484178b00939bcc3a00f023
     public static class DataKelas{
 
         String id;
