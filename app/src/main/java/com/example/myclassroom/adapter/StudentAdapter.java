@@ -4,52 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.myclassroom.R;
-import com.example.myclassroom.data.DummyData;
 import com.example.myclassroom.data.StudentsData;
-import com.example.myclassroom.databinding.ActivityStudentListBinding;
-import com.example.myclassroom.databinding.ItemStudentBinding;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
 import java.util.List;
-//
-//public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHolder>
-//{
-//    private ArrayList<StudentsData> studentsData;
-//
-//    public StudentAdapter(ArrayList<StudentsData> studentsData)
-//    {
-//        this.studentsData = studentsData;
-//    }
-//
-//
-//    @NonNull
-//    @Override
-//    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_student, parent, false);
-//       return new RecyclerView.ViewHolder(view);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull StudentAdapter.ViewHolder holder, int position) {
-//
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return 0;
-//    }
-//}
-
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
 
@@ -68,14 +29,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
-            setupItemWiew();
+            setupItemView();
         }
 
-        private void setupItemWiew() {
+        private void setupItemView() {
             StudentName = itemView.findViewById(R.id.name_txt);
             StudentNRP = itemView.findViewById(R.id.nrp_txt);
-//            NamaKelas = itemView.findViewById(R.id.tv_nama_kelas);
-//            TokenKelas = itemView.findViewById(R.id.tv_token_kelas);
         }
     }
 
@@ -91,8 +50,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-
-//        bind data
         holder.StudentName.setText(studentsDummyList.get(position).getStudentName());
         holder.StudentNRP.setText(studentsDummyList.get(position).getStudentNRP());
     }
@@ -101,4 +58,5 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
     public int getItemCount() {
         return studentsDummyList.size();
     }
+
 }
