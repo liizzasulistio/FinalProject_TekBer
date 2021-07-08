@@ -42,14 +42,11 @@ public class AuthAppRepository {
 
     public void register(String email, String password) {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(ContextCompat.getMainExecutor(application), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            userLiveData.postValue(firebaseAuth.getCurrentUser());
-                        } else {
-                            Toast.makeText(application.getApplicationContext(), "Registration Failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                .addOnCompleteListener(ContextCompat.getMainExecutor(application), task -> {
+                    if (task.isSuccessful()){
+                        userLiveData.postValue(firebaseAuth.getCurrentUser());
+                    } else {
+                        Toast.makeText(application.getApplicationContext(), "Registration Failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
