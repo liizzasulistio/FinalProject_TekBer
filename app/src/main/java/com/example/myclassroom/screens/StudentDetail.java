@@ -3,6 +3,7 @@ package com.example.myclassroom.screens;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,9 +29,9 @@ public class StudentDetail extends AppCompatActivity {
 
 //        Intent intent = getIntent();
 //        Bundle bundle = intent.getExtras();
-
+        Log.d("students" , getIntent().getStringExtra("classID") );
         if (getIntent().getStringExtra("student") != null) {
-            classID = getIntent().getStringExtra("class");
+            classID = getIntent().getStringExtra("classID");
             id = getIntent().getStringExtra("studentID");
             value = getIntent().getStringExtra("student");
             student.setText(value);

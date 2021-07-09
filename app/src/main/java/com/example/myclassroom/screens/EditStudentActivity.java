@@ -38,7 +38,9 @@ public class EditStudentActivity extends AppCompatActivity
         studentScore = (EditText) findViewById(R.id.edtNilai);
         btnSave = (Button) findViewById(R.id.btnSave);
 
-
+//        Log.d("testing : " , classID);
+//        Log.d("testing : " , classID);
+//        Log.d("testing : " , classID);
         if (getIntent().getStringExtra("student") != null) {
             id = getIntent().getStringExtra("studentID");
             classID = getIntent().getStringExtra("classID");
@@ -48,6 +50,7 @@ public class EditStudentActivity extends AppCompatActivity
             String val2 = getIntent().getStringExtra("student_nrp");
             studentNRP.setText(val2);
         }
+
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("classroom").document(classID).get()
@@ -59,7 +62,7 @@ public class EditStudentActivity extends AppCompatActivity
                         for (Map<String, Object> student: students){
                             DocumentReference dr = (DocumentReference) student.get("user_id");
                             if(id.equals(dr.getId())){
-                                grade = (Integer) student.get("grade");
+                                grade = (Integer) student.get("grades");
                                 break;
                             }
                         }

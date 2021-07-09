@@ -52,7 +52,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
-                    Log.e("nama kelas",mData.get(position).getId());
                     Intent intent = new Intent(mContext, StudentDetail.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("studentID", mData.get(position).getId());

@@ -60,6 +60,7 @@ public class StudentsData {
 
         public StudentsDummy(String id, String classID, String studentName, String studentNRP) {
             this.id = id;
+            this.classID = classID;
 //            this.studentAva = studentAva;
             this.studentName = studentName;
             this.studentNRP = studentNRP;
@@ -75,7 +76,9 @@ public class StudentsData {
             this.id = id;
         }
 
-//        public int getStudentAva() {return studentAva;}
+        public void setClassID(String classID) {
+            this.classID = classID;
+        }
 
         public String getStudentName() {
             return studentName;
