@@ -18,6 +18,7 @@ import com.example.myclassroom.R;
 import com.example.myclassroom.data.DummyData;
 import com.example.myclassroom.data.StudentsData;
 import com.example.myclassroom.screens.ListKelasActivity;
+import com.example.myclassroom.screens.MyProfileActivity;
 import com.example.myclassroom.screens.StudentListActivity;
 
 import java.util.List;
