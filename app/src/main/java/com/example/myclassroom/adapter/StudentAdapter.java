@@ -55,6 +55,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
                     Log.e("nama kelas",mData.get(position).getId());
                     Intent intent = new Intent(mContext, StudentDetail.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("studentID", mData.get(position).getId());
                     intent.putExtra("student", mData.get(position).getStudentName());
                     intent.putExtra("student_nrp", mData.get(position).getStudentNRP());
                     mContext.startActivity(intent);
