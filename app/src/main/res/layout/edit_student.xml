@@ -66,6 +66,7 @@
         app:layout_constraintTop_toBottomOf="@id/studentNRP" />
 
     <EditText
+        android:id="@+id/edtNilai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ubah Nilai"
@@ -76,6 +77,7 @@
         app:layout_constraintTop_toBottomOf="@id/studentNRP" />
 
     <Button
+        android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -83,7 +85,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/table"
         />
 
 

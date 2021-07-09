@@ -33,6 +33,8 @@
             android:parentActivityName=".screens.StudentListActivity"/>
         <activity android:name=".screens.MyProfileActivity"/>
         <activity android:name=".screens.ListKelasActivity"/>
+        <activity android:name=".screens.EditStudentActivity"
+            android:parentActivityName=".screens.StudentDetail"/>
         <activity
             android:name=".screens.LoginActivity"
             android:label="@string/title_activity_login" />
