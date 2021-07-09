@@ -52,30 +52,27 @@ import java.util.Map;
 public class StudentsData {
     public static class StudentsDummy{
 
-        int id;
-        int studentAva;
+        String id;
+//        int studentAva;
         String studentName;
         String studentNRP;
 
-        public StudentsDummy(int id, int studentAva, String studentName, String studentNRP) {
+        public StudentsDummy(String id, String studentName, String studentNRP) {
             this.id = id;
-            this.studentAva = studentAva;
+//            this.studentAva = studentAva;
             this.studentName = studentName;
             this.studentNRP = studentNRP;
         }
 
-        public StudentsDummy(String id, String ava, String name, String token, String owner_id) {
-        }
-
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
-        public int getStudentAva() {return studentAva;}
+//        public int getStudentAva() {return studentAva;}
 
         public String getStudentName() {
             return studentName;
@@ -92,13 +89,14 @@ public class StudentsData {
         public void setStudentNRP(String token_kelas) {
             this.studentNRP = studentNRP;
         }
-    }
-    public class FirestoreClass {
-        public String name;
-        public String token;
-        public ArrayList<Map<String, Object>> students;
-        public String owner_id;
+        
+        public class FirestoreClass {
+            public String name;
+            public String token;
+            public ArrayList<Map<String, Object>> students;
+            public String owner_id;
 
-        public FirestoreClass() {}
+            public FirestoreClass() {}
+        }
     }
 }

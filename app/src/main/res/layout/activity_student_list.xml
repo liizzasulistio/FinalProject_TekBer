@@ -17,13 +17,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
     />
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/classToken"-->
-<!--        android:id="@+id/studentListRV"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        tools:listitem="@layout/item_student"-->
-<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>-->
+    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintBottom_toBottomOf="@+id/classToken"
+        android:id="@+id/studentListRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_student"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

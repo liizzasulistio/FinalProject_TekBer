@@ -1,22 +1,27 @@
 package com.example.myclassroom.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myclassroom.R;
 import com.example.myclassroom.data.StudentsData;
+import com.example.myclassroom.screens.StudentListActivity;
+
 import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
 
     Context mContext;
-    List<StudentsData.StudentsDummy> studentsDummyList;
+    List<StudentsData.StudentsDummy> mData;
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
@@ -28,30 +33,47 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
     }
 
 
-    public StudentAdapter(Context mContext, List<StudentsData.StudentsDummy> studentsDummyList) {
+    public StudentAdapter(Context mContext, List<StudentsData.StudentsDummy> mData) {
         this.mContext = mContext;
-        this.studentsDummyList = studentsDummyList;
+        this.mData = mData;
     }
 
     public class StudentViewHolder extends RecyclerView.ViewHolder {
 
         ImageView StudentAva;
         TextView StudentName,StudentNRP;
+        RelativeLayout RlItemStudent;
+
 
         public StudentViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             StudentName = itemView.findViewById(R.id.name_txt);
             StudentNRP = itemView.findViewById(R.id.nrp_txt);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    if (mListener != null) {
+//                        int position = getAdapterPosition();
+//                        if (position != RecyclerView.NO_POSITION) {
+//                            mListener.onItemClick(position);
+//                        }
+//                    }
+//                }
+//            });
+            RlItemStudent = itemView.findViewById(R.id.rl_item_kelas);
+
+            RlItemStudent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (mListener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            mListener.onItemClick(position);
-                        }
-                    }
+
+                    int position = getAdapterPosition();
+                    Log.e("nama kelas",mData.get(position).getId());
+//                    Intent intent = new Intent(mContext, StudentListActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId());
+//                    mContext.startActivity(intent);
+
                 }
             });
         }
@@ -69,13 +91,13 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-//        holder.StudentName.setText(studentsDummyList.get(position).getStudentName());
-//        holder.StudentNRP.setText(studentsDummyList.get(position).getStudentNRP());
+        holder.StudentName.setText(mData.get(position).getStudentName());
+        holder.StudentNRP.setText(mData.get(position).getStudentNRP());
     }
 
     @Override
     public int getItemCount() {
-        return studentsDummyList.size();
+        return mData.size();
     }
 
 }
