@@ -12,6 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myclassroom.R;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class StudentDetail extends AppCompatActivity {
 
@@ -26,9 +32,8 @@ public class StudentDetail extends AppCompatActivity {
         student = (TextView) findViewById(R.id.studentName);
         nrp = (TextView) findViewById(R.id.studentNRP);
         btnEdit = (Button) findViewById(R.id.btnEditStudent);
+        nilai_angka = (TextView) findViewById(R.id.tv_nilai_angka);
 
-//        Intent intent = getIntent();
-//        Bundle bundle = intent.getExtras();
         Log.d("students" , getIntent().getStringExtra("classID") );
         if (getIntent().getStringExtra("student") != null) {
             classID = getIntent().getStringExtra("classID");
@@ -38,6 +43,28 @@ public class StudentDetail extends AppCompatActivity {
             val2 = getIntent().getStringExtra("student_nrp");
             nrp.setText(val2);
         }
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("classroom").document(classID).get()
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        DocumentSnapshot ds = task.getResult();
+                        ArrayList<Map<String, Object>> students = (ArrayList<Map<String, Object>>) ds.get("students");
+                        Number grade = 0;
+                        for (Map<String, Object> student: students){
+                            DocumentReference dr = (DocumentReference) student.get("user_id");
+                            if(id.equals(dr.getId())){
+                                grade = (Number) student.get("grades");
+                                break;
+                            }
+                        }
+                        nilai_angka.setText(grade.toString());
+                    }
+                });
+
+//        Intent intent = getIntent();
+//        Bundle bundle = intent.getExtras();
+
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
