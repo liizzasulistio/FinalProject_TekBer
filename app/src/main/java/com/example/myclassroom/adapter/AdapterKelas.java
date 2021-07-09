@@ -8,10 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,13 +25,13 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
 
     Context mContext;
     List<DummyData.DataKelas> mData;
-    private AdapterKelas.OnItemClickListener mListener;
+    private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(AdapterKelas.OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
 
@@ -44,19 +41,13 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
         this.mData = mData;
     }
 
-
     public class KelasViewHolder extends RecyclerView.ViewHolder {
 
         TextView NamaKelas,TokenKelas;
-        RelativeLayout RlItemKelas;
-
-//        public KelasViewHolder(@NonNull View itemView) {
-//            super(itemView);
-////            setupItemWiew();
-//        }
 
         public KelasViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
+//            setupItemWiew();
             NamaKelas = itemView.findViewById(R.id.tv_nama_kelas);
             TokenKelas = itemView.findViewById(R.id.tv_token_kelas);
 
@@ -101,7 +92,7 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
         View layout;
         layout = LayoutInflater.from(mContext).inflate(R.layout.item_kelas,parent,false);
 
-        return new KelasViewHolder(layout,mListener);
+        return new KelasViewHolder(layout, mListener);
     }
 
     @Override
@@ -110,7 +101,6 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
 //        bind data
         holder.NamaKelas.setText(mData.get(position).getNama_kelas());
         holder.TokenKelas.setText(mData.get(position).getToken_kelas());
-
     }
 
     @Override
