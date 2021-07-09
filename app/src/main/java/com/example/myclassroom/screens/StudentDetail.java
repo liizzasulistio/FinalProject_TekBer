@@ -25,7 +25,7 @@ public class StudentDetail extends AppCompatActivity {
         student = (TextView) findViewById(R.id.studentName);
         nrp = (TextView) findViewById(R.id.studentNRP);
         btnEdit = (Button) findViewById(R.id.btnEditStudent);
-//
+
 //        Intent intent = getIntent();
 //        Bundle bundle = intent.getExtras();
 
@@ -37,7 +37,6 @@ public class StudentDetail extends AppCompatActivity {
             val2 = getIntent().getStringExtra("student_nrp");
             nrp.setText(val2);
         }
-
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
