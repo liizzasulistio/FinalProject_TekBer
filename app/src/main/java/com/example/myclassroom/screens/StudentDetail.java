@@ -46,6 +46,7 @@ public class StudentDetail extends AppCompatActivity {
                 intent.putExtra("studentID", id);
                 intent.putExtra("student", value);
                 intent.putExtra("student_nrp", val2);
+                intent.putExtra("classID", classID);
                 startActivity(intent);
             }
         });
