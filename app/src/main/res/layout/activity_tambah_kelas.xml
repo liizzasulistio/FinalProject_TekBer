@@ -27,7 +27,8 @@
             android:text="Tambah"
             android:layout_width="0dp"
             android:layout_height="@dimen/input_height"
-            android:layout_weight=".30" />
+            android:layout_weight=".30"
+            android:id="@+id/btn_tambah_kelas"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
