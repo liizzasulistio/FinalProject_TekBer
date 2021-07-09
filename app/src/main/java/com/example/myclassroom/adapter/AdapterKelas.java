@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myclassroom.R;
 import com.example.myclassroom.data.DummyData;
+import com.example.myclassroom.data.StudentsData;
 import com.example.myclassroom.screens.ListKelasActivity;
 
 import java.util.List;
@@ -24,21 +26,21 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
     Context mContext;
     List<DummyData.DataKelas> mData;
     private AdapterKelas.OnItemClickListener mListener;
-    private static RecyclerViewClickListener itemListener;
 
-    public interface RecyclerViewClickListener {
-        public void recyclerViewListClicked(View v, int position);
+    public interface OnItemClickListener {
+        void onItemClick(int position);
     }
 
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    public void setOnItemClickListener(AdapterKelas.OnItemClickListener listener) {
         mListener = listener;
     }
+
 
     public AdapterKelas(Context mContext, List<DummyData.DataKelas> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
+
 
     public class KelasViewHolder extends RecyclerView.ViewHolder {
 
@@ -57,10 +59,10 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
 
             RlItemKelas = itemView.findViewById(R.id.rl_item_kelas);
 
-            RlItemKelas.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
                     if (mListener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
@@ -69,7 +71,6 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
                     }
                 }
             });
-
         }
 
 //        private void setupItemWiew() {

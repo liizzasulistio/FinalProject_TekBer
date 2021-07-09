@@ -74,24 +74,21 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
         KelasRecyclerView.setAdapter(kelasAdapter);
         KelasRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        @Override
-        public void recyclerViewListClicked(View v, int position){... ...}
 
         //set up adapter and pass clicked listener this
-        kelasAdapter = new AdapterKelas(this);
 
-//        kelasAdapter.setOnItemClickListener(new AdapterKelas.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position) {
-////                Intent intent = new Intent(ListKelasActivity.this, StudentListActivity.class);
-////                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId().toString());
-//
-////                Toast.makeText(ListKelasActivity.this, mData.get(position).getNama_kelas().toString(),
-////                        Toast.LENGTH_SHORT).show();
-////                startActivity(intent);
-//                System.out.println("position : " + position);
-//            }
-//        });
+        kelasAdapter.setOnItemClickListener(new AdapterKelas.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+//                Intent intent = new Intent(ListKelasActivity.this, StudentListActivity.class);
+//                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId().toString());
+
+//                Toast.makeText(ListKelasActivity.this, mData.get(position).getNama_kelas().toString(),
+//                        Toast.LENGTH_SHORT).show();
+//                startActivity(intent);
+                System.out.println("position : " + position);
+            }
+        });
 
         btnMasukKelas.setOnClickListener(masukKelas);
     }

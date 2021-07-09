@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -73,13 +74,9 @@ public class TambahKelasActivity extends AppCompatActivity {
         kelasAdapter.setOnItemClickListener(new AdapterKelas.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-//                Intent intent = new Intent(ListKelasActivity.this, StudentListActivity.class);
-//                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId().toString());
                 Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-//                Toast.makeText(ListKelasActivity.this, mData.get(position).getNama_kelas().toString(),
-//                        Toast.LENGTH_SHORT).show();
-//                startActivity(intent);
             }
+
         });
 
         btnTambahKelas.setOnClickListener(tambahKelas);
