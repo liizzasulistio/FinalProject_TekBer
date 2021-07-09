@@ -2,6 +2,9 @@ package com.example.myclassroom.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.util.ArrayList;
+import java.util.Map;
 //
 //public class StudentsData implements Parcelable{
 //    private int studentID;
@@ -61,6 +64,9 @@ public class StudentsData {
             this.studentNRP = studentNRP;
         }
 
+        public StudentsDummy(String id, String ava, String name, String token, String owner_id) {
+        }
+
         public int getId() {
             return id;
         }
@@ -86,5 +92,13 @@ public class StudentsData {
         public void setStudentNRP(String token_kelas) {
             this.studentNRP = studentNRP;
         }
+    }
+    public class FirestoreClass {
+        public String name;
+        public String token;
+        public ArrayList<Map<String, Object>> students;
+        public String owner_id;
+
+        public FirestoreClass() {}
     }
 }

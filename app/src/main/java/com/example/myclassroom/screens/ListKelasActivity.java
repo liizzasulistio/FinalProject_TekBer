@@ -274,18 +274,29 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
 
         //noinspection SimplifiableIfStatement
         if(id == R.id.nav_list_kelas){
+//            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ListKelasActivity.class);
             startActivity(intent);
             finish();
         }
         if (id == R.id.nav_tambah_kelas) {
+//            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, TambahKelasActivity.class);
             startActivity(intent);
             finish();
         }
         if (id == R.id.nav_profile) {
+//            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MyProfileActivity.class);
+            startActivity(intent);
+            finish();
         }
         if (id == R.id.nav_logout) {
+//            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

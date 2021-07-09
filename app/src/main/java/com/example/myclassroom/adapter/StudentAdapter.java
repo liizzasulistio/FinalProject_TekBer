@@ -69,8 +69,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-        holder.StudentName.setText(studentsDummyList.get(position).getStudentName());
-        holder.StudentNRP.setText(studentsDummyList.get(position).getStudentNRP());
+//        holder.StudentName.setText(studentsDummyList.get(position).getStudentName());
+//        holder.StudentNRP.setText(studentsDummyList.get(position).getStudentNRP());
     }
 
     @Override
