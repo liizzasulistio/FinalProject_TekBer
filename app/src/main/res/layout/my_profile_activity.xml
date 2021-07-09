@@ -61,7 +61,7 @@
         tools:layout_editor_absoluteX="227dp" />
 
         <Button
-            android:id="@+id/btnEditProfile"
+            android:id="@+id/btnEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
