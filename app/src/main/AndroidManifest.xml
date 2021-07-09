@@ -28,11 +28,6 @@
         <activity android:name=".screens.TestActivity" />
         <activity android:name=".screens.StudentListActivity"
             android:parentActivityName=".screens.ListKelasActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".screens.StudentDetail"
             android:parentActivityName=".screens.StudentListActivity"/>
@@ -41,13 +36,13 @@
         <activity
             android:name=".screens.LoginActivity"
             android:label="@string/title_activity_login" />
-<!--        <activity android:name=".screens.SplashScreen" >-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity android:name=".screens.SplashScreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 <!--        <activity android:name=".screens.StudentListActivity" >-->
 <!--            <intent-filter>-->

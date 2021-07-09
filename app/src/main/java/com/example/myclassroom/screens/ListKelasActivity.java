@@ -207,9 +207,9 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
                                     }
                                 }
                             }
-                            if(((DocumentReference)datas.get("owner_id")).getId().equals(curUser.getUid())){
-                                isStudent = true;
-                            }
+//                            if(((DocumentReference)datas.get("owner_id")).getId().equals(curUser.getUid())){
+//                                isStudent = true;
+//                            }
                             if (!isStudent) {
                                 Log.d("idk", "Skipped making classroom model");
                                 continue;
