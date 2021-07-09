@@ -58,7 +58,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
                     intent.putExtra("studentID", mData.get(position).getId());
                     intent.putExtra("student", mData.get(position).getStudentName());
                     intent.putExtra("student_nrp", mData.get(position).getStudentNRP());
-                    intent.putExtra("classID", mData.get(position).getClass());
+                    intent.putExtra("classID", mData.get(position).getClassID());
                     mContext.startActivity(intent);
 //                    if (mListener != null) {
 //                        int position = getAdapterPosition();

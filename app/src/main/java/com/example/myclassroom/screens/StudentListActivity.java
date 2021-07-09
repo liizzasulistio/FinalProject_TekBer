@@ -17,14 +17,21 @@ import com.example.myclassroom.adapter.AdapterKelas;
 import com.example.myclassroom.adapter.StudentAdapter;
 import com.example.myclassroom.data.DummyData;
 import com.example.myclassroom.data.StudentsData;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -68,9 +75,6 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
     }
 
     public void loadData() {
-        mData.add(new StudentsData.StudentsDummy("1","Hana","123"));
-        mData.add(new StudentsData.StudentsDummy("2","Hani","456"));
-        mData.add(new StudentsData.StudentsDummy("3","Hans","789"));
 
         studentAdapter = new StudentAdapter(this,mData);
         studentListRV.setAdapter(studentAdapter);
@@ -85,6 +89,34 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
 //                startActivity(intent);
 //            }
 //        });
+        String classID = getIntent().getStringExtra("EXTRA_ID_KELAS");
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("classroom")
+                .document(classID)
+                .get()
+                .continueWithTask((Continuation<DocumentSnapshot, Task<List<DocumentSnapshot>>>) task -> {
+                    List<Task<DocumentSnapshot>> tasks = new ArrayList<>();
+                    DocumentSnapshot ds = task.getResult();
+                    Log.d("idk", "Document ID : " + ds.getId());
+                    ArrayList<Map<String, Object>> students = (ArrayList<Map<String, Object>>) ds.get("students");
+                    Log.d("idk", students == null ? "exits": "not");
+                    for (Map<String, Object> m : students){
+                        Log.d("idk", "Search ID: "+ ((DocumentReference)m.get("user_id")).getId());
+                        tasks.add(db.collection("user").document(((DocumentReference)m.get("user_id")).getId()).get());
+                    }
+                    return Tasks.whenAllSuccess(tasks);
+                }).addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        List<DocumentSnapshot> studentDataList = task.getResult();
+                        List<StudentsData.StudentsDummy> studentList = new ArrayList<>();
+                        for (DocumentSnapshot ds : studentDataList) {
+                            Map<String, Object> data = ds.getData();
+                            studentList.add(new StudentsData.StudentsDummy(ds.getId(), classID, data.get("name").toString(), data.get("nrp").toString()));
+                        }
+                        studentAdapter = new StudentAdapter(getApplicationContext(),studentList);
+                        studentListRV.setAdapter(studentAdapter);
+                    }
+                });
 
 
 

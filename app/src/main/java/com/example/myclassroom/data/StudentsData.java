@@ -53,16 +53,19 @@ public class StudentsData {
     public static class StudentsDummy{
 
         String id;
+        String classID;
 //        int studentAva;
         String studentName;
         String studentNRP;
 
-        public StudentsDummy(String id, String studentName, String studentNRP) {
+        public StudentsDummy(String id, String classID, String studentName, String studentNRP) {
             this.id = id;
 //            this.studentAva = studentAva;
             this.studentName = studentName;
             this.studentNRP = studentNRP;
         }
+
+        public String getClassID() { return  classID; }
 
         public String getId() {
             return id;
