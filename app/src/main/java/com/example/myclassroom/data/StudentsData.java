@@ -89,14 +89,14 @@ public class StudentsData {
         public void setStudentNRP(String token_kelas) {
             this.studentNRP = studentNRP;
         }
-        
-        public class FirestoreClass {
-            public String name;
-            public String token;
-            public ArrayList<Map<String, Object>> students;
-            public String owner_id;
 
-            public FirestoreClass() {}
-        }
+//        public class FirestoreClass {
+//            public String name;
+//            public String token;
+//            public ArrayList<Map<String, Object>> students;
+//            public String owner_id;
+//
+//            public FirestoreClass() {}
+//        }
     }
 }

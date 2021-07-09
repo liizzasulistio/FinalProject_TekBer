@@ -6,75 +6,96 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="8dp">
 
+<!--    <TextView-->
+<!--        android:id="@+id/studentName"-->
+<!--        android:text="@string/name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--/>-->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/studentAva"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="52dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/studentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/name"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/studentAva"
+        app:layout_constraintEnd_toEndOf="@+id/studentAva"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.859" />
+
+    <TextView
+        android:id="@+id/studentNRP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nrp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/studentName"
+         />
+
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentNRP"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-/>
-<!--    <de.hdodenhof.circleimageview.CircleImageView-->
-<!--        android:id="@+id/studentAva"-->
-<!--        android:layout_width="200dp"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_marginTop="52dp"-->
-<!--        android:src="@drawable/ic_baseline_account_circle_24"-->
-<!--        app:layout_constraintBottom_toEndOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.497"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+        >
 
-<!--    <TextView-->
-<!--        android:id="@+id/studentName"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/name"-->
-<!--        android:textSize="32sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/studentAva"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/studentAva"-->
-<!--        app:layout_constraintHorizontal_bias="0.74"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.859" />-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            >
 
-<!--    <TextView-->
-<!--        android:id="@+id/studentNRP"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/nrp"-->
-<!--        android:textSize="32sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.12"-->
-<!--        app:layout_constraintStart_toStartOf="@id/studentName"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/studentName"-->
-<!--        app:layout_constraintVertical_bias="0.033" />-->
-<!--     />-->
+            <TextView
+                android:text="Nilai Angka"
+                android:padding="4dp"
+                android:textSize="20sp"/>
+            <TextView
+                android:text="Nilai Huruf"
+                android:padding="4dp"
+                android:textSize="20sp"/>
+        </TableRow>
 
-<!--    <TableLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/studentNRP"-->
-<!--        >-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            >
 
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-
-<!--            <TextView-->
-<!--                android:text="Nilai Angka" />-->
-<!--            <TextView-->
-<!--                android:text="Nilai Huruf" />-->
-<!--        </TableRow>-->
+            <TextView
+                android:text="100"
+                android:padding="4dp"
+                android:textSize="20sp"
+                android:textAlignment="center"/>
+            <TextView
+                android:text="A"
+                android:padding="4dp"
+                android:textSize="20sp"
+                android:textAlignment="center"/>
+        </TableRow>
 
 
-<!--    </TableLayout>-->
+    </TableLayout>
 
 
 

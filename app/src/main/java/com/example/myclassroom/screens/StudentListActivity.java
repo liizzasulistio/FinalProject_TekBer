@@ -43,13 +43,13 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
         setContentView(R.layout.activity_student_list);
 //        setSupportActionBar();
         setupItemView();
-        TextView token = findViewById(R.id.classToken);
+//        TextView token = findViewById(R.id.classToken);
 //        token =
-        if(getIntent().getStringExtra("EXTRA_ID_KELAS") != null)
-        {
-            String value = getIntent().getStringExtra("EXTRA_ID_KELAS");
-            token.setText(value);
-        }
+//        if(getIntent().getStringExtra("EXTRA_ID_KELAS") != null)
+//        {
+//            String value = getIntent().getStringExtra("EXTRA_ID_KELAS");
+//            token.setText(value);
+//        }
         loadData();
 //        setupView();
     }
@@ -68,24 +68,25 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
     }
 
     public void loadData() {
-//        mData.add(new StudentsData.StudentsDummy(1,1,"Hana","123"));
-//        mData.add(new StudentsData.StudentsDummy(2,3,"Hani","456"));
-//        mData.add(new StudentsData.StudentsDummy(2,3,"Hans","789"));
+        mData.add(new StudentsData.StudentsDummy("1","Hana","123"));
+        mData.add(new StudentsData.StudentsDummy("2","Hani","456"));
+        mData.add(new StudentsData.StudentsDummy("3","Hans","789"));
 
-//        studentAdapter = new StudentAdapter(this,mData);
-//        studentListRV.setAdapter(studentAdapter);
-//        studentListRV.setLayoutManager(new LinearLayoutManager(this));
+        studentAdapter = new StudentAdapter(this,mData);
+        studentListRV.setAdapter(studentAdapter);
+        studentListRV.setLayoutManager(new LinearLayoutManager(this));
 //
 //        studentAdapter.setOnItemClickListener(new StudentAdapter.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(int position) {
 //                Intent intent = new Intent(StudentListActivity.this, StudentDetail.class);
-////                intent.putExtra("Student", mData.toString());
-//                Toast.makeText(StudentListActivity.this, "it works",
-//                        Toast.LENGTH_SHORT).show();
+//                intent.putExtra("student", mData.get(position).getStudentName());
+//                Toast.makeText(StudentListActivity.this, mData.get(position).getStudentName().toString(),Toast.LENGTH_SHORT).show();
 //                startActivity(intent);
 //            }
 //        });
+
+
 
 
     }

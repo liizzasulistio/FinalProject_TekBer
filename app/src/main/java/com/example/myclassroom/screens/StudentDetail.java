@@ -12,21 +12,23 @@ import com.example.myclassroom.R;
 
 public class StudentDetail extends AppCompatActivity {
 
-    private TextView student;
+    private TextView student, nrp, nilai_angka, nilai_huruf;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_detail);
-        student = (TextView)findViewById(R.id.name_txt);
+        student = (TextView) findViewById(R.id.studentName);
+        nrp = (TextView) findViewById(R.id.studentNRP);
+//
+//        Intent intent = getIntent();
+//        Bundle bundle = intent.getExtras();
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-
-        if(bundle!=null)
-        {
-            String studentName = (String)bundle.get("student");
-            student.setText(studentName);
+        if (getIntent().getStringExtra("student") != null) {
+            String value = getIntent().getStringExtra("student");
+            student.setText(value);
+            String val2 = getIntent().getStringExtra("student_nrp");
+            nrp.setText(val2);
         }
     }
 }

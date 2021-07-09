@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myclassroom.R;
 import com.example.myclassroom.data.StudentsData;
+import com.example.myclassroom.screens.StudentDetail;
 import com.example.myclassroom.screens.StudentListActivity;
 
 import java.util.List;
@@ -42,38 +42,28 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
         ImageView StudentAva;
         TextView StudentName,StudentNRP;
-        RelativeLayout RlItemStudent;
-
 
         public StudentViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             StudentName = itemView.findViewById(R.id.name_txt);
             StudentNRP = itemView.findViewById(R.id.nrp_txt);
 
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    Log.e("nama kelas",mData.get(position).getId());
+                    Intent intent = new Intent(mContext, StudentDetail.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("student", mData.get(position).getStudentName());
+                    intent.putExtra("student_nrp", mData.get(position).getStudentNRP());
+                    mContext.startActivity(intent);
 //                    if (mListener != null) {
 //                        int position = getAdapterPosition();
 //                        if (position != RecyclerView.NO_POSITION) {
 //                            mListener.onItemClick(position);
 //                        }
 //                    }
-//                }
-//            });
-            RlItemStudent = itemView.findViewById(R.id.rl_item_kelas);
-
-            RlItemStudent.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    int position = getAdapterPosition();
-                    Log.e("nama kelas",mData.get(position).getId());
-//                    Intent intent = new Intent(mContext, StudentListActivity.class);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId());
-//                    mContext.startActivity(intent);
-
                 }
             });
         }
