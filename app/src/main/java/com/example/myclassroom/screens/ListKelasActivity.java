@@ -64,14 +64,13 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
         kelasAdapter.setOnItemClickListener(new AdapterKelas.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-//                Intent intent = new Intent(ListKelasActivity.this, StudentDetail.class);
-//                intent.putExtra("Student", mData.get(position).getId().toString());
-                Intent intent = new Intent(getBaseContext(), StudentListActivity.class);
-                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getNama_kelas().toString());
-                startActivity(intent);
+//                Intent intent = new Intent(ListKelasActivity.this, StudentListActivity.class);
+//                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId().toString());
+                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
 //                Toast.makeText(ListKelasActivity.this, mData.get(position).getNama_kelas().toString(),
 //                        Toast.LENGTH_SHORT).show();
 //                startActivity(intent);
+                System.out.println("position : " + position);
             }
         });
     }
@@ -94,18 +93,23 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
                             String id = documentSnapshot.getId();
                             Map<String, Object> datas = documentSnapshot.getData();
                             ArrayList<Map<String, Object>> students = (ArrayList<Map<String, Object>>) documentSnapshot.get("students");
-                            Log.d("idk", String.valueOf(students.size()));
                             boolean isStudent = false;
-                            for (Map<String, Object> m : students){
-                                DocumentReference docRef = (DocumentReference) m.get("user_id");
-                                if (docRef != null) {
-                                    Log.d("idk", "User Found : " + docRef.getId());
-                                    if(docRef.getId().equals(curUser.getUid())){
-                                        Log.d("idk", "User Match");
-                                        isStudent = true;
-                                        break;
+                            if(students != null){
+                                Log.d("idk", String.valueOf(students.size()));
+                                for (Map<String, Object> m : students){
+                                    DocumentReference docRef = (DocumentReference) m.get("user_id");
+                                    if (docRef != null) {
+                                        Log.d("idk", "User Found : " + docRef.getId());
+                                        if(docRef.getId().equals(curUser.getUid())){
+                                            Log.d("idk", "User Match");
+                                            isStudent = true;
+                                            break;
+                                        }
                                     }
                                 }
+                            }
+                            if(((DocumentReference)datas.get("owner_id")).getId().equals(curUser.getUid())){
+                                isStudent = true;
                             }
                             if (!isStudent) {
                                 Log.d("idk", "Skipped making classroom model");
@@ -164,11 +168,13 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
 
         //noinspection SimplifiableIfStatement
         if(id == R.id.nav_list_kelas){
+            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ListKelasActivity.class);
             startActivity(intent);
             finish();
         }
         if (id == R.id.nav_tambah_kelas) {
+            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, TambahKelasActivity.class);
             startActivity(intent);
             finish();
