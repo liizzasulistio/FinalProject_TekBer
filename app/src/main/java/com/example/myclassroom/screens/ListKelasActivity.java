@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -34,6 +36,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,6 +46,10 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
     RecyclerView KelasRecyclerView;
     AdapterKelas kelasAdapter;
     List<DummyData.DataKelas> mData;
+
+    private EditText etMasukKelas;
+    private Button btnMasukKelas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +62,10 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
     }
 
     private void setupItemWiew() {
+
+        etMasukKelas = findViewById(R.id.et_masuk_kelas);
+        btnMasukKelas = findViewById(R.id.btn_masuk_kelas);
+
         KelasRecyclerView = findViewById(R.id.rv_kelas);
         mData = new ArrayList<>();
         kelasAdapter = new AdapterKelas(this,mData);
@@ -85,6 +96,89 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
 
     }
 
+    private View.OnClickListener masukKelas = v -> {
+
+//        Intent intent = new Intent(TambahKelasActivity.this, TambahKelasActivity.class);
+//
+//        String tokenKelas = etMasukKelas.getText().toString();
+//
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
+//
+//        DocumentReference ref = db.collection("user").document(curUser.getUid());
+//
+//
+//        Map<String, Object> addClassrroom = new HashMap<>();
+//        addClassrroom.put("grades", 0);
+//        addClassrroom.put("user_id", ref);
+////
+//        List<DummyData.DataKelas> nData = new ArrayList<>();
+//        db.collection("classroom")
+////                .whereArrayContains("students", curUser.getUid())
+//                .get()
+//                .addOnCompleteListener(task -> {
+//                    if(task.isSuccessful()) {
+//                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+//                            String id = documentSnapshot.getId();
+//                            Map<String, Object> datas = documentSnapshot.getData();
+////                            ArrayList<Map<String, Object>> students = (ArrayList<Map<String, Object>>) documentSnapshot.get("students");
+////                            Log.d("idk", String.valueOf(students.size()));
+//
+//
+//                            DummyData.DataKelas newClass = new DummyData.DataKelas(
+//                                    id,
+//                                    datas.get("name").toString(),
+//                                    datas.get("token").toString(),
+//                                    ((DocumentReference)datas.get("owner_id")).getId()
+//                            );
+//                            nData.add(newClass);
+//                        }
+//                        AdapterKelas newKelasAdapter = new AdapterKelas(getApplicationContext(), nData);
+//                        KelasRecyclerView.swapAdapter(newKelasAdapter, true);
+//                    }else {
+//                        Toast.makeText(getApplicationContext(), "Failed to Connect to Firestore", Toast.LENGTH_SHORT);
+//                    }
+//                });
+
+
+//        Testing
+
+//        Intent intent = new Intent(TambahKelasActivity.this, TambahKelasActivity.class);
+
+//        String tokenKelas = etMasukKelas.getText().toString();
+//
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
+//
+//        DocumentReference ref = db.collection("user").document(curUser.getUid());
+//
+//
+//        Map<String, Object> addClassrroom = new HashMap<>();
+//        addClassrroom.put("grades", 0);
+//        addClassrroom.put("user_id", ref);
+
+//         for ( Map<String, Object> oldData: oldClassroomStudents ) {
+//              // iterasi in data student lama
+//              DocumentReference docRef = (DocumentReference) m.get("user_id");
+//              if (docRef != null) {
+//                  Log.d("idk", "User Found : " + docRef.getId());
+//                  if(docRef.getId().equals(YANG_DICARI)){
+//                      m.put("grade", 100);
+//                      break;
+//                  }
+//              }
+//         }
+//         newClassroom.put("students", oldClassroomStudents)
+
+//        db.collection("classroom").add(addClassrroom);
+//
+//        etMasukKelas.getText().clear();
+//        kelasAdapter.notifyDataSetChanged();
+//        Toast.makeText(getApplicationContext(), "Anda Berhasil Masuk Kelas", Toast.LENGTH_SHORT).show();
+    };
+
     private void setupView() {
 
     }
@@ -103,18 +197,25 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
                             String id = documentSnapshot.getId();
                             Map<String, Object> datas = documentSnapshot.getData();
                             ArrayList<Map<String, Object>> students = (ArrayList<Map<String, Object>>) documentSnapshot.get("students");
-                            Log.d("idk", String.valueOf(students.size()));
                             boolean isStudent = false;
-                            for (Map<String, Object> m : students){
-                                DocumentReference docRef = (DocumentReference) m.get("user_id");
-                                if (docRef != null) {
-                                    Log.d("idk", "User Found : " + docRef.getId());
-                                    if(docRef.getId().equals(curUser.getUid())){
-                                        Log.d("idk", "User Match");
-                                        isStudent = true;
-                                        break;
+                            if( students != null){
+                                Log.d("idk", String.valueOf(students.size()));
+
+
+                                for (Map<String, Object> m : students){
+                                    DocumentReference docRef = (DocumentReference) m.get("user_id");
+                                    if (docRef != null) {
+                                        Log.d("idk", "User Found : " + docRef.getId());
+                                        if(docRef.getId().equals(curUser.getUid())){
+                                            Log.d("idk", "User Match");
+                                            isStudent = true;
+                                            break;
+                                        }
                                     }
                                 }
+                            }
+                            if(((DocumentReference)datas.get("owner_id")).getId().equals(curUser.getUid())){
+                                isStudent = true;
                             }
                             if (!isStudent) {
                                 Log.d("idk", "Skipped making classroom model");

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Adapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,6 +45,7 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
     public class KelasViewHolder extends RecyclerView.ViewHolder {
 
         TextView NamaKelas,TokenKelas;
+        RelativeLayout RlItemKelas;
 
         public KelasViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
