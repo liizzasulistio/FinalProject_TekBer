@@ -1,6 +1,8 @@
 package com.example.myclassroom.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import com.example.myclassroom.R;
 import com.example.myclassroom.data.DummyData;
 import com.example.myclassroom.data.StudentsData;
 import com.example.myclassroom.screens.ListKelasActivity;
+import com.example.myclassroom.screens.StudentListActivity;
 
 import java.util.List;
 
@@ -59,16 +62,28 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
 
             RlItemKelas = itemView.findViewById(R.id.rl_item_kelas);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            RlItemKelas.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
-                    if (mListener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            mListener.onItemClick(position);
-                        }
-                    }
+
+                  int position = getAdapterPosition();
+                    Log.e("nama kelas",mData.get(position).getId());
+                    Intent intent = new Intent(mContext, StudentListActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId());
+                    mContext.startActivity(intent);
+
+//                    Toast.makeText(mContext, String.valueOf(position) , Toast.LENGTH_SHORT).show();
+//                    if (position != RecyclerView.NO_POSITION) {
+//                        mListener.onItemClick(position);
+//                    }
+//                    if (mListener != null) {
+//                        Toast.makeText(mContext, "test2", Toast.LENGTH_SHORT).show();
+////                        int position = getAdapterPosition();
+//                        if (position != RecyclerView.NO_POSITION) {
+//                            mListener.onItemClick(position);
+//                        }
+//                    }
                 }
             });
         }

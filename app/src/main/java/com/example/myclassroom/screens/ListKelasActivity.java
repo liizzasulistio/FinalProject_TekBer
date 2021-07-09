@@ -77,18 +77,23 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
 
         //set up adapter and pass clicked listener this
 
-        kelasAdapter.setOnItemClickListener(new AdapterKelas.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-//                Intent intent = new Intent(ListKelasActivity.this, StudentListActivity.class);
-//                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId().toString());
-
-//                Toast.makeText(ListKelasActivity.this, mData.get(position).getNama_kelas().toString(),
-//                        Toast.LENGTH_SHORT).show();
-//                startActivity(intent);
-                System.out.println("position : " + position);
-            }
-        });
+//        kelasAdapter.setOnItemClickListener(new AdapterKelas.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position) {
+//
+////                Toast.makeText(ListKelasActivity.this, Log.e(mData.get(position).getNama_kelas()) ,Toast.LENGTH_SHORT).show();
+//                Log.e("nama kelas",mData.get(position).getNama_kelas());
+////                FirebaseFirestore db = FirebaseFirestore.getInstance();
+////                db.collection("classroom").document(ID_CLASSROOM)
+////                Intent intent = new Intent(ListKelasActivity.this, StudentListActivity.class);
+////                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId());
+////
+//
+////                startActivity(intent);
+//
+////                System.out.println("position : " + mData.get(position).getNama_kelas());
+//            }
+//        });
 
         btnMasukKelas.setOnClickListener(masukKelas);
     }
