@@ -11,6 +11,8 @@
     <string name="login_failed">"Login failed"</string>
 
     <string name="name">Name</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
     <string name="subject">Class Name</string>
     <string name="search">Search</string>
     <string name="title_activity_beranda">BerandaActivity</string>
