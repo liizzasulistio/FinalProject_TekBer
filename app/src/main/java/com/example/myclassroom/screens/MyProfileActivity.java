@@ -37,7 +37,7 @@ import java.util.Map;
 public class MyProfileActivity extends AppCompatActivity {
 
     TextView NamaSiswa,NrpSiswa,EmailSiswa;
-    Button btnSave;
+    Button btnEdit;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class MyProfileActivity extends AppCompatActivity {
         NamaSiswa = findViewById(R.id.tv_nama_siswa);
         NrpSiswa = findViewById(R.id.tv_nrp_siswa);
         EmailSiswa = findViewById(R.id.tv_email_siswa);
-        btnSave = findViewById(R.id.btnSave);
+        btnEdit = findViewById(R.id.btnEdit);
 
         FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -74,14 +74,14 @@ public class MyProfileActivity extends AppCompatActivity {
 
         EmailSiswa.setText(curUser.getEmail());
 
-//        btnSave.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MyProfileActivity.this, EditProfileActivity.class);
-//                intent.putExtra("userID", curUser.getUid());
-//                startActivity(intent);
-//            }
-//        });
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyProfileActivity.this, EditProfileActivity.class);
+                intent.putExtra("userID", curUser.getUid());
+                startActivity(intent);
+            }
+        });
 
 
     }
