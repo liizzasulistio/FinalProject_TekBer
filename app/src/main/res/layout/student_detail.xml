@@ -71,10 +71,6 @@
                 android:text="Nilai Angka"
                 android:padding="4dp"
                 android:textSize="20sp"/>
-            <TextView
-                android:text="Nilai Huruf"
-                android:padding="4dp"
-                android:textSize="20sp"/>
         </TableRow>
 
         <TableRow
@@ -84,12 +80,8 @@
             >
 
             <TextView
+                android:id="@+id/tv_nilai_angka"
                 android:text="100"
-                android:padding="4dp"
-                android:textSize="20sp"
-                android:textAlignment="center"/>
-            <TextView
-                android:text="A"
                 android:padding="4dp"
                 android:textSize="20sp"
                 android:textAlignment="center"/>

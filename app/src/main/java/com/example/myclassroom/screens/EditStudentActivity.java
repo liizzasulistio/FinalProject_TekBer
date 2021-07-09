@@ -38,6 +38,8 @@ public class EditStudentActivity extends AppCompatActivity
             studentNRP.setText(val2);
         }
 
+        
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
