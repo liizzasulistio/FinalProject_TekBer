@@ -7,39 +7,44 @@
 <!--    android:layout_height="match_parent"-->
 <!--    tools:context=".screens.ListKelasActivity">-->
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
         tools:context=".screens.ListKelasActivity">
 
     <LinearLayout
+        android:id="@+id/ll_masuk_kelas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="5dp">
+        android:orientation="horizontal"
+        android:padding="10px">
 
-<!--        <com.google.android.material.appbar.AppBarLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-<!--            <Toolbar-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:id="@+id/toolbar"-->
-<!--                android:navigationIcon="@drawable/ic_baseline_menu_24">-->
-
-<!--            </Toolbar>-->
-<!--        </com.google.android.material.appbar.AppBarLayout>-->
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight=".70"
+            android:id="@+id/et_masuk_kelas"
+            android:layout_height="@dimen/input_height"
+            android:hint="@string/masuk_kelas"
+            android:inputType="text"
+            android:background="@android:color/transparent"
+            style="@style/InputText.EdtTextNoMargin"
+            />
+        <Button
+            android:text="@string/masuk"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/input_height"
+            android:layout_weight=".30"
+            android:id="@+id/btn_masuk_kelas"/>
+    </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_kelas"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ll_masuk_kelas"/>
 
 
-    </LinearLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
 <!--</RelativeLayout>-->

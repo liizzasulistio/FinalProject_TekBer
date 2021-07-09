@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -28,12 +30,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,6 +48,10 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
     RecyclerView KelasRecyclerView;
     AdapterKelas kelasAdapter;
     List<DummyData.DataKelas> mData;
+
+    private EditText etMasukKelas;
+    private Button btnMasukKelas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,24 +64,36 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
     }
 
     private void setupItemWiew() {
+
+        etMasukKelas = findViewById(R.id.et_masuk_kelas);
+        btnMasukKelas = findViewById(R.id.btn_masuk_kelas);
+
         KelasRecyclerView = findViewById(R.id.rv_kelas);
         mData = new ArrayList<>();
         kelasAdapter = new AdapterKelas(this,mData);
         KelasRecyclerView.setAdapter(kelasAdapter);
         KelasRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        kelasAdapter.setOnItemClickListener(new AdapterKelas.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-//                Intent intent = new Intent(ListKelasActivity.this, StudentListActivity.class);
-//                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId().toString());
-                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-//                Toast.makeText(ListKelasActivity.this, mData.get(position).getNama_kelas().toString(),
-//                        Toast.LENGTH_SHORT).show();
-//                startActivity(intent);
-                System.out.println("position : " + position);
-            }
-        });
+        @Override
+        public void recyclerViewListClicked(View v, int position){... ...}
+
+        //set up adapter and pass clicked listener this
+        kelasAdapter = new AdapterKelas(this);
+
+//        kelasAdapter.setOnItemClickListener(new AdapterKelas.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position) {
+////                Intent intent = new Intent(ListKelasActivity.this, StudentListActivity.class);
+////                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getId().toString());
+//
+////                Toast.makeText(ListKelasActivity.this, mData.get(position).getNama_kelas().toString(),
+////                        Toast.LENGTH_SHORT).show();
+////                startActivity(intent);
+//                System.out.println("position : " + position);
+//            }
+//        });
+
+        btnMasukKelas.setOnClickListener(masukKelas);
     }
 
     private void setupView() {
@@ -168,20 +189,29 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
 
         //noinspection SimplifiableIfStatement
         if(id == R.id.nav_list_kelas){
-            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ListKelasActivity.class);
             startActivity(intent);
             finish();
         }
         if (id == R.id.nav_tambah_kelas) {
-            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, TambahKelasActivity.class);
             startActivity(intent);
             finish();
         }
         if (id == R.id.nav_profile) {
+//            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MyProfileActivity.class);
+            startActivity(intent);
+            finish();
         }
         if (id == R.id.nav_logout) {
+//            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -195,4 +225,88 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
+    private View.OnClickListener masukKelas = v -> {
+
+        String tokenKelas = etMasukKelas.getText().toString();
+
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
+//        Log.d("idk", "current user: " + curUser.getUid());
+//        List<DummyData.DataKelas> nData = new ArrayList<>();
+//        db.collection("classroom")
+////                .whereArrayContains("students", curUser.getUid())
+//                .get()
+//                .addOnCompleteListener(task -> {
+//                    if(task.isSuccessful()) {
+//                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+//                            String id = documentSnapshot.getId();
+//                            Map<String, Object> datas = documentSnapshot.getData();
+//                            ArrayList<Map<String, Object>> students = (ArrayList<Map<String, Object>>) documentSnapshot.get("students");
+//
+//                            if(students == null){
+//                                ArrayList<Map<String, Object>> students =
+//                            }
+//
+//                            Log.d("idk", String.valueOf(students.size()));
+//
+//                            for (Map<String, Object> m : students){
+//                                DocumentReference docRef = (DocumentReference) m.get("user_id");
+//                                if (docRef != null) {
+//                                    Log.d("idk", "User Found : " + docRef.getId());
+//                                    if(docRef.getId().equals(curUser.getUid())){
+//                                        Log.d("idk", "User Match");
+//                                        break;
+//                                    }
+//                                }
+//                            }
+//
+//                    }else {
+//                        Toast.makeText(getApplicationContext(), "Failed to Connect to Firestore", Toast.LENGTH_SHORT);
+//                    }
+//                });
+        etMasukKelas.getText().clear();
+        //testing
+
+//        String namaKelas = etMasukKelas.getText().toString();
+//
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
+//
+//        // fetch reference database
+//        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+//        DatabaseReference mDbRef = mDatabase.getReference("user");
+//
+//        DocumentReference ref = db.collection("user").document(curUser.getUid());
+//
+//        Map<String, Object> addClassrroom = new HashMap<>();
+//        addClassrroom.put("name", namaKelas);
+//        addClassrroom.put("owner_id", ref);
+//
+//        // Map<String, Object> newClassroom = new Map<String, Object>();
+//        // newClassroom.put("name", NAMA_KELAS);
+//        // DocumentReference owner = db.collection("user).document(OWNER_ID);
+//        // newClassroom.put("owner_id", owner);
+//        // newClassroom.put("token", TOKEN);
+//        // for ( Map<String, Object> oldData: oldClassroomStudents ) {
+//        //      // iterasi in data student lama
+//        //      DocumentReference docRef = (DocumentReference) m.get("user_id");
+//        //      if (docRef != null) {
+//        //          Log.d("idk", "User Found : " + docRef.getId());
+//        //          if(docRef.getId().equals(YANG_DICARI)){
+//        //              m.put("grade", 100);
+//        //              break;
+//        //          }
+//        //      }
+//        // }
+//        // newClassroom.put("students", oldClassroomStudents)
+//        // db.collection("classroom").document(ID_CLASSROOM).set(newClassroom);
+//
+//        db.collection("classroom").add(addClassrroom);
+////         System.out.println("Update time : " + db.get().getUpdateTime());
+//        etMasukKelas.getText().clear();
+//
+//        Toast.makeText(getApplicationContext(), "Anda Berhasil Masuk Kelas", Toast.LENGTH_SHORT).show();
+    };
 }

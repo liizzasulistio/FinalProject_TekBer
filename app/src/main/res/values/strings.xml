@@ -86,6 +86,7 @@
     <string name="password">Password</string>
     <string name="lupa_password">Lupa Password?</string>
     <string name="masuk">Masuk</string>
+    <string name="masuk_kelas">Masukan Token Kelas</string>
     <string name="daftar">Daftar</string>
     <string name="welcome_text_app">Selamat Datang di TK XXX!</string>
     <string name="login_desc_text">Masuk menggunakan email atau akun sosial mediamu.</string>

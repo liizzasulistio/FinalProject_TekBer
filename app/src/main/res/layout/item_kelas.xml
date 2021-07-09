@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
     android:background="@drawable/border"
+    android:id="@+id/rl_item_kelas"
     >
         <TextView
             android:id="@+id/tv_nama_kelas"
