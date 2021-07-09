@@ -49,11 +49,27 @@ public class MyProfileActivity extends AppCompatActivity {
         btnEdit = findViewById(R.id.btnEdit);
 
         FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
+        EmailSiswa.setText(curUser.getEmail());
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyProfileActivity.this, EditProfileActivity.class);
+                intent.putExtra("userID", curUser.getUid());
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+        EmailSiswa.setText(curUser.getEmail());
 
         db.collection("user")
-//                .whereEqualTo("Uid", curUser.getUid())
                 .get()
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()) {
@@ -70,19 +86,6 @@ public class MyProfileActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Failed to Connect to Firestore", Toast.LENGTH_SHORT);
                     }
                 });
-
-        EmailSiswa.setText(curUser.getEmail());
-
-        btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MyProfileActivity.this, EditProfileActivity.class);
-                intent.putExtra("userID", curUser.getUid());
-                startActivity(intent);
-            }
-        });
-
-
     }
 
     @Override

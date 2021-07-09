@@ -58,11 +58,11 @@ public class EditStudentActivity extends AppCompatActivity
                     if(task.isSuccessful()){
                         DocumentSnapshot ds = task.getResult();
                         ArrayList<Map<String, Object>> students = (ArrayList<Map<String, Object>>) ds.get("students");
-                        Integer grade = 0;
+                        Number grade = 0;
                         for (Map<String, Object> student: students){
                             DocumentReference dr = (DocumentReference) student.get("user_id");
                             if(id.equals(dr.getId())){
-                                grade = (Integer) student.get("grades");
+                                grade = (Number) student.get("grades");
                                 break;
                             }
                         }
@@ -84,11 +84,12 @@ public class EditStudentActivity extends AppCompatActivity
                                     for (Map<String, Object> student: students){
                                         DocumentReference dr = (DocumentReference) student.get("user_id");
                                         if(id.equals(dr.getId())){
-                                            student.put("grade", Integer.valueOf(studentScore.getText().toString()));
+                                            student.put("grade", Long.valueOf(studentScore.getText().toString()));
                                             break;
                                         }
                                     }
                                     db.collection("classroom").document(classID).set(data);
+                                    finish();
                                 }
                             }
                         });

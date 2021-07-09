@@ -6,9 +6,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myclassroom.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -35,11 +43,32 @@ public class EditProfileActivity extends AppCompatActivity {
             id = getIntent().getStringExtra("userID");
             studentID.setText(id);
         }
+        FirebaseFirestore.getInstance().collection("user").document(id)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()){
+                            DocumentSnapshot student = task.getResult();
+                            studentName.setText(student.get("name").toString());
+                            studentNRP.setText(student.get("nrp").toString());
+                        }
+                    }
+                });
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Map<String, Object> student = new HashMap<>();
+                student.put("name", studentName.getText().toString());
+                student.put("nrp", studentNRP.getText().toString());
+                FirebaseFirestore.getInstance().collection("user").document(id)
+                        .set(student).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        finish();
+                    }
+                });
             }
         });
     }

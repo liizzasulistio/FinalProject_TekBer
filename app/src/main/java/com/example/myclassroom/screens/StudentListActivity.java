@@ -40,6 +40,7 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
     RecyclerView studentListRV;
     StudentAdapter studentAdapter;
     List<StudentsData.StudentsDummy> mData;
+    private String classID;
 //    String sessionId = getIntent().getStringExtra("EXTRA_ID_KELAS");
 
 
@@ -57,8 +58,8 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
 //            String value = getIntent().getStringExtra("EXTRA_ID_KELAS");
 //            token.setText(value);
 //        }
-        loadData();
 //        setupView();
+         classID = getIntent().getStringExtra("EXTRA_ID_KELAS");
     }
 
     private void setupItemView() {
@@ -72,6 +73,12 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
 
     private void setupView() {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadData();
     }
 
     public void loadData() {
@@ -89,8 +96,8 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
 //                startActivity(intent);
 //            }
 //        });
-        String classID = getIntent().getStringExtra("EXTRA_ID_KELAS");
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Log.d("idk", "Class Id:" + classID);
         db.collection("classroom")
                 .document(classID)
                 .get()
@@ -102,6 +109,7 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
                     Log.d("idk", students == null ? "exits": "not");
                     for (Map<String, Object> m : students){
                         Log.d("idk", "Search ID: "+ ((DocumentReference)m.get("user_id")).getId());
+                        Log.d("idk", ((DocumentReference)m.get("user_id")).getId());
                         tasks.add(db.collection("user").document(((DocumentReference)m.get("user_id")).getId()).get());
                     }
                     return Tasks.whenAllSuccess(tasks);
@@ -117,10 +125,6 @@ public class StudentListActivity extends AppCompatActivity implements Navigation
                         studentListRV.setAdapter(studentAdapter);
                     }
                 });
-
-
-
-
     }
 
 
