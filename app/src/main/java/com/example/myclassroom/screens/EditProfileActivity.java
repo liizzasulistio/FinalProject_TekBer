@@ -25,8 +25,8 @@ public class EditProfileActivity extends AppCompatActivity {
 
         studentName = (EditText) findViewById(R.id.edtName);
         studentNRP = (EditText) findViewById(R.id.edtNRP);
-        studentEmail = (EditText) findViewById(R.id.edtEmail);
-        studentPassword = (EditText) findViewById(R.id.edtPwd);
+//        studentEmail = (EditText) findViewById(R.id.edtEmail);
+//        studentPassword = (EditText) findViewById(R.id.edtPwd);
         btnSave = (Button) findViewById(R.id.btnSave);
 
         studentID = (TextView) findViewById(R.id.studentID);
