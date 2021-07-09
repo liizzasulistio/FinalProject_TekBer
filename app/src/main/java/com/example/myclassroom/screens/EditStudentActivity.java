@@ -14,7 +14,7 @@ public class EditStudentActivity extends AppCompatActivity
 {
     TextView studentName, studentNRP;
     EditText studentScore;
-    private String value, id;
+    private String value, id, classID;
     private Button btnSave;
 
     @Override
@@ -31,6 +31,7 @@ public class EditStudentActivity extends AppCompatActivity
 
         if (getIntent().getStringExtra("student") != null) {
             id = getIntent().getStringExtra("studentID");
+            classID = getIntent().getStringExtra("classID");
             value = getIntent().getStringExtra("student");
             studentName.setText(value);
             String val2 = getIntent().getStringExtra("student_nrp");

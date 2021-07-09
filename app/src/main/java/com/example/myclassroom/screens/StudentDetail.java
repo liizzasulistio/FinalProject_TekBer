@@ -16,7 +16,7 @@ public class StudentDetail extends AppCompatActivity {
 
     private TextView student, nrp, nilai_angka, nilai_huruf;
     private Button btnEdit;
-    private String value, val2, id;
+    private String value, val2, id, classID;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class StudentDetail extends AppCompatActivity {
 //        Bundle bundle = intent.getExtras();
 
         if (getIntent().getStringExtra("student") != null) {
+            classID = getIntent().getStringExtra("class");
             id = getIntent().getStringExtra("studentID");
             value = getIntent().getStringExtra("student");
             student.setText(value);
