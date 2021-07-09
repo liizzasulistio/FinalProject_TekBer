@@ -66,11 +66,12 @@ public class ListKelasActivity extends AppCompatActivity implements NavigationVi
             public void onItemClick(int position) {
 //                Intent intent = new Intent(ListKelasActivity.this, StudentDetail.class);
 //                intent.putExtra("Student", mData.get(position).getId().toString());
-                Intent intent = new Intent(getBaseContext(), StudentListActivity.class);
-                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getNama_kelas().toString());
-                startActivity(intent);
+//                Intent intent = new Intent(getBaseContext(), StudentListActivity.class);
+//                intent.putExtra("EXTRA_ID_KELAS", mData.get(position).getNama_kelas().toString());
+//                startActivity(intent);
 //                Toast.makeText(ListKelasActivity.this, mData.get(position).getNama_kelas().toString(),
 //                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListKelasActivity.this, "test on click", Toast.LENGTH_SHORT).show();
 //                startActivity(intent);
             }
         });

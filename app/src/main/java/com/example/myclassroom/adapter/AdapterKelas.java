@@ -20,15 +20,16 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
 
     Context mContext;
     List<DummyData.DataKelas> mData;
-    private AdapterKelas.OnItemClickListener mListener;
+    private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(AdapterKelas.OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
+
 
     public AdapterKelas(Context mContext, List<DummyData.DataKelas> mData) {
         this.mContext = mContext;
@@ -39,15 +40,29 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
 
         TextView NamaKelas,TokenKelas;
 
-        public KelasViewHolder(@NonNull View itemView) {
+        public KelasViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
-            setupItemWiew();
-        }
-
-        private void setupItemWiew() {
+//            setupItemWiew();
             NamaKelas = itemView.findViewById(R.id.tv_nama_kelas);
             TokenKelas = itemView.findViewById(R.id.tv_token_kelas);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
+
+//        private void setupItemWiew() {
+//            NamaKelas = itemView.findViewById(R.id.tv_nama_kelas);
+//            TokenKelas = itemView.findViewById(R.id.tv_token_kelas);
+//        }
     }
 
     @NonNull
@@ -57,7 +72,7 @@ public class AdapterKelas extends RecyclerView.Adapter<AdapterKelas.KelasViewHol
         View layout;
         layout = LayoutInflater.from(mContext).inflate(R.layout.item_kelas,parent,false);
 
-        return new KelasViewHolder(layout);
+        return new KelasViewHolder(layout, mListener);
     }
 
     @Override
